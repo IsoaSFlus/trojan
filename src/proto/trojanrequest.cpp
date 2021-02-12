@@ -20,7 +20,9 @@
 #include "trojanrequest.h"
 using namespace std;
 
-int TrojanRequest::parse(const string &data) {
+int
+TrojanRequest::parse(const string& data)
+{
     size_t first = data.find("\r\n");
     if (first == string::npos) {
         return -1;
@@ -40,7 +42,9 @@ int TrojanRequest::parse(const string &data) {
     return data.length();
 }
 
-string TrojanRequest::generate(const string &password, const string &domainname, uint16_t port, bool tcp) {
+string
+TrojanRequest::generate(const string& password, const string& domainname, uint16_t port, bool tcp)
+{
     string ret = password + "\r\n";
     if (tcp) {
         ret += '\x01';
